@@ -1,16 +1,26 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
+import Button from './Button';
+import ComponentA from './ComponentA';
+import ComponentB from './ComponentB';
 import './styles.css';
 
-const element = 'Have a nice day';
-const element2 = <h1>I believe you</h1>
+function sum(a, b) {
+  alert(a + b);
+}
 
 const App = () => {
+
   return (
-    <Fragment>
-      {element}
-      {element2}
-    </Fragment>
+    <div className="App">
+      Estoy aquí
+      <Button onClick={() => sum(10, 20)} name="Gilbertina Castro" />
+      <ComponentA>
+        <ComponentB>
+          <Button onClick={() => sum(10, 18)} name="Dilúcio Alves" />
+        </ComponentB>
+      </ComponentA>
+    </div >
   );
 };
 
