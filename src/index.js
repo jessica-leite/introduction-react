@@ -1,25 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
 
-function sum(a, b) {
-  return a + b;
-}
-
-function firstJSX() {
-  return (
-    <div className="test">
-      Welcome =)
-      <p>The result of sum is: {sum(10, 18)}</p>
-    </div>
-  );
-}
+const element = 'Have a nice day';
+const element2 = <h1>I believe you</h1>
 
 const App = () => {
   return (
-    <div className="App">
-      {firstJSX()}
-    </div>
+    <Fragment>
+      {element}
+      {element2}
+    </Fragment>
   );
 };
 
