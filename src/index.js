@@ -1,41 +1,22 @@
-import React, { Component } from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
 
-class App extends Component {
+const customerButton = <button>There's a customer here!</button>;
 
-  constructor(props) {
-    super(props);
+const hasCustomer = false;
 
-    this.state = {
-      clock: 1000,
-      cup: 'water'
-    }
-  }
+const App = () => {
 
-  componentDidMount() {
-    window.setTimeout(() => {
-      this.setState({
-        cup: 'juice'
-      })
-    }, 3000);
-  }
-
-  updateCup = () => {
-    this.setState({
-      cup: 'coffee'
-    });
-  }
-
-  render() {
-    const { clock, cup } = this.state;
-    return (
-      <div>
-        <h1>{clock}</h1>
-        <button onClick={() => this.updateCup()}><b>{cup}</b></button>
-      </div>
-    )
-  }
+  return (
+    <div>
+      {hasCustomer && (
+        <Fragment>
+          {customerButton}
+        </Fragment>
+      )}
+    </div>
+  )
 }
 
 const rootElement = document.getElementById('root');
