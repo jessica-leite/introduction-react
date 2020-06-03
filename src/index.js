@@ -1,28 +1,42 @@
-import React, { Fragment } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Button from './Button';
-import ComponentA from './ComponentA';
-import ComponentB from './ComponentB';
 import './styles.css';
 
-function sum(a, b) {
-  alert(a + b);
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      clock: 1000,
+      cup: 'water'
+    }
+  }
+
+  componentDidMount() {
+    window.setTimeout(() => {
+      this.setState({
+        cup: 'juice'
+      })
+    }, 3000);
+  }
+
+  updateCup = () => {
+    this.setState({
+      cup: 'coffee'
+    });
+  }
+
+  render() {
+    const { clock, cup } = this.state;
+    return (
+      <div>
+        <h1>{clock}</h1>
+        <button onClick={() => this.updateCup()}><b>{cup}</b></button>
+      </div>
+    )
+  }
 }
-
-const App = () => {
-
-  return (
-    <div className="App">
-      Estoy aquí
-      <Button onClick={() => sum(10, 20)} name="Gilbertina Castro" />
-      <ComponentA>
-        <ComponentB>
-          <Button onClick={() => sum(10, 18)} name="Dilúcio Alves" />
-        </ComponentB>
-      </ComponentA>
-    </div >
-  );
-};
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
