@@ -1,0 +1,1 @@
+console.log('Be kind to yourself');
