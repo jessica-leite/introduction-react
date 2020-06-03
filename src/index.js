@@ -8,15 +8,23 @@ const hasCustomer = false;
 
 const App = () => {
 
+  const renderCustomer = () => (
+    <Fragment>
+      {customerButton}
+    </Fragment>
+  );
+
+  const renderRegister = () => (
+    <Fragment>
+      <button>Register a customer</button>
+    </Fragment >
+  );
+
   return (
     <div>
-      {hasCustomer && (
-        <Fragment>
-          {customerButton}
-        </Fragment>
-      )}
-    </div>
-  )
+      {hasCustomer ? renderCustomer() : renderRegister()}
+    </div >
+  );
 }
 
 const rootElement = document.getElementById('root');
