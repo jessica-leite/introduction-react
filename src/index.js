@@ -4,17 +4,17 @@ import './styles.css';
 
 const customerButton = <button>There's a customer here!</button>;
 
-const hasCustomer = false;
+const hasCustomer = true;
 
 const App = () => {
 
-  const renderCustomer = () => (
+  const renderCustomer = (
     <Fragment>
       {customerButton}
     </Fragment>
   );
 
-  const renderRegister = () => (
+  const renderRegister = (
     <Fragment>
       <button>Register a customer</button>
     </Fragment >
@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <div>
-      {hasCustomer ? renderCustomer() : renderRegister()}
+      {hasCustomer ? renderCustomer : renderRegister}
     </div >
   );
 }
