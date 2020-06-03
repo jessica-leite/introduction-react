@@ -2,34 +2,24 @@ import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import './styles.css';
 
-const customerList = [
-  {
-    id: 1,
-    name: 'Julia Pacheco'
-  },
-  {
-    id: 2,
-    name: 'Michael Pereira'
-  },
-  {
-    id: 3,
-    name: 'Maria Antunes'
-  }
-];
+const showEvent = () => {
+  alert('Clicked');
+};
+
+const Button = <button onClick={showEvent}>Click me</button>;
+
+const handleChange = (e) => {
+  const { value } = e.target;
+  console.log(e);
+  console.log(value);
+};
 
 const App = () => {
 
-  const renderCustomers = (customer) => {
-    return (
-      <li key={`customer-${customer.id}`}>{customer.name}</li>
-    )
-  };
-
   return (
     <div>
-      <ul>
-        {customerList.map(renderCustomers)}
-      </ul>
+      <input onChange={handleChange} />
+      {Button}
     </div >
   );
 };
